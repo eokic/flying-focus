@@ -2,7 +2,7 @@
   if (!window.addEventListener) return
   'use strict'
 
-  const DURATION = 150
+  const DURATION = 500
 
   let ringElem = null
   let movingId = 0
@@ -59,7 +59,6 @@
   function initialize () {
     ringElem = doc.createElement('flying-focus') // use uniq element name to decrease the chances of a conflict with website styles
     ringElem.id = 'flying-focus'
-    ringElem.style.transitionDuration = ringElem.style.WebkitTransitionDuration = DURATION / 1000 + 's'
     body.appendChild(ringElem)
   }
 
@@ -99,10 +98,8 @@
     position: absolute;
     margin: 0;
     background: transparent;
-    -webkit-transition-property: left, top, width, height;
-    transition-property: left, top, width, height;
-    -webkit-transition-timing-function: cubic-bezier(0,1,0,1);
-    transition-timing-function: cubic-bezier(0,1,0,1);
+    -webkit-transition: all ${DURATION}ms cubic-bezier(0,1,0,1);
+    transition: all ${DURATION}ms cubic-bezier(0,1,0,1);
     visibility: hidden;
     pointer-events: none;
     box-shadow: 0 0 2px 3px #78aeda, 0 0 2px #78aeda inset; border-radius: 2px;
