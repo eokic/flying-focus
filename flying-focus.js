@@ -43,6 +43,13 @@
     ringElem.style.width = target.offsetWidth + 'px'
     ringElem.style.height = target.offsetHeight + 'px'
 
+    // Adds border-radius to the ring element
+    // Should animate towards the target's border-radius
+    const targetBorderRadius = getComputedStyle(target).borderRadius.match(/^([\d.]+)([a-zA-Z]+)?$/)
+    ringElem.style.borderRadius = targetBorderRadius?.[1] && (parseInt(targetBorderRadius[1], 10) > 12)
+      ? targetBorderRadius[1] + targetBorderRadius[2]
+      : 'var(--focus-sr-radius, 6px)'
+
     onEnd()
     target.classList.add('flying-focus_target')
     ringElem.classList.add('flying-focus_visible')
@@ -97,12 +104,13 @@
   style.textContent = `#flying-focus {
     position: absolute;
     margin: 0;
+    visibility: hidden;
+    outline: var(--focus-sr-width, 0.25rem) var(--focus-sr-style, solid) var(--focus-sr-color, red);
+    outline-offset: var(--focus-sr-offset, 0.2em);
     background: transparent;
+    pointer-events: none;
     -webkit-transition: all ${DURATION}ms cubic-bezier(0,1,0,1);
     transition: all ${DURATION}ms cubic-bezier(0,1,0,1);
-    visibility: hidden;
-    pointer-events: none;
-    box-shadow: 0 0 2px 3px #78aeda, 0 0 2px #78aeda inset; border-radius: 2px;
   }
 
   #flying-focus.flying-focus_visible {
@@ -117,15 +125,6 @@
   /* http://stackoverflow.com/questions/71074/how-to-remove-firefoxs-dotted-outline-on-buttons-as-well-as-links/199319 */
   .flying-focus_target::-moz-focus-inner {
     border: 0 !important;
-  }
-
-  /* Replace it with @supports rule when browsers catch up */
-  @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    #flying-focus {
-      box-shadow: none;
-      outline: 5px auto -webkit-focus-ring-color;
-      outline-offset: -3px;
-    }
   }`
 
   body.appendChild(style)
