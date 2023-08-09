@@ -1,6 +1,9 @@
 (function () {
   if (!window.addEventListener) return
-  'use strict'
+
+  // Don't init the script if the user has reduced motion enabled
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)')?.matches)
+    return
 
   const DURATION = 500
 
