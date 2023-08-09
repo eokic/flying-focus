@@ -1,6 +1,6 @@
-This is a personal copy, focusing on the standalone script & modern browsers.
+### ⚠️ This is a personal copy, focusing on the standalone script & modern browsers.
 
-
+-----------
 -----------
 # Original `README.md`
 
