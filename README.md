@@ -1,3 +1,10 @@
+This is a personal copy, focusing on the standalone script & modern browsers.
+
+
+-----------
+# Original `README.md`
+
+
 **Flying Focus**
  · [Focus Snail](//github.com/NV/focus-snail/)
  · [Focus Zoom](//github.com/NV/focus-zoom/)
