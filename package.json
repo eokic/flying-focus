@@ -1,0 +1,9 @@
+{
+  "name": "flying-focus",
+  "version": "0.9.0",
+  "main": "flying-focus.js",
+  "author": "Nikita Vasilyev (https://github.com/NV/flying-focus)",
+  "contributors": [
+    "Elmas Okić <hi@eokic.com> (https://eokic.com/)"
+  ]
+}
